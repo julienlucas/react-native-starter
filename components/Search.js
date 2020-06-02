@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, View, TextInput, Button, ActivityIndicator } from 'react-native'
 import FilmList from '../components/FilmList'
 import { getFilmsFormApiWithSearchedText } from '../api/TMDBApi'
@@ -42,12 +42,13 @@ function Search(props) {
         setPage(0)
         setTotalPages(0)
         setFilms([])
-        loadFilms()
     }
 
-    const displayDetailForFilm = idFilm => {
-        props.navigation.navigate('FilmDetail', { idFilm: idFilm })
-    }
+    useEffect(() => {
+        if (films.length === 0) {
+            loadFilms()
+        }
+    }, [films])
 
     return (
         <View style={styles.main_container}>
