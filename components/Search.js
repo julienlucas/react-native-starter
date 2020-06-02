@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, TextInput, FlatList, Button, ActivityIndicator } from 'react-native'
-import FilmItem from '../components/FilmItem'
+import { StyleSheet, View, TextInput, Button, ActivityIndicator } from 'react-native'
+import FilmList from '../components/FilmList'
 import { getFilmsFormApiWithSearchedText } from '../api/TMDBApi'
 import { connect } from 'react-redux'
 
@@ -57,23 +57,12 @@ function Search(props) {
                 style={styles.textinput}
                 placeholder='Titre du film'/>
             <Button title='Rechercher' onPress={() => searchFilms()}/>
-            <FlatList
-                data={films}
-                extraData={props.favoritesFilm}
-                keyExtractor={(item) => item.id.toString()}
-                onEndReachedThreshold={.5}
-                onEndReached={() => {
-                    if (page < totalPages) {
-                        loadFilms()
-                    }
-                }}
-                renderItem={({item}) =>
-                    <FilmItem
-                        film={item}
-                        isFilmFavorite={(props.favoritesFilm.findIndex(film => film.id === item.id) !== -1) ? true : false}
-                        displayDetailForFilm={() => {const idFilm = item.id; displayDetailForFilm(idFilm)}}
-                    />
-                }
+            <FilmList
+                films={films}
+                navigation={props.navigation}
+                loadFilms={() => loadFilms()}
+                page={page}
+                totalPages={totalPages}
             />
             {displayLoading()}
         </View>
