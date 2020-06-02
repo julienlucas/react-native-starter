@@ -12,8 +12,8 @@ function Search(props) {
     const [totalPages, setTotalPages] = useState(0)
 
     const loadFilms = () => {
-        setIsLoading(true)
         if (searchedText.length > 0) {
+          setIsLoading(true)
           getFilmsFormApiWithSearchedText(searchedText, page+1).then(data => {
               setPage(data.page)
               setTotalPages(data.total_pages)
