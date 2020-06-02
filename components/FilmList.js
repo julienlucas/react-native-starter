@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import FilmItem from './FilmItem'
 import { connect } from 'react-redux'
 
@@ -31,12 +31,6 @@ function FilmList(props) {
     />
   )
 }
-
-const styles = StyleSheet.create({
-  list: {
-    flex: 1
-  }
-})
 
 const mapStateToProps = state => {
   return {

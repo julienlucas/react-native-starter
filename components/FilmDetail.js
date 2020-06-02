@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, ActivityIndicator, ScrollView, Image, Button, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, ActivityIndicator, ScrollView, Image, TouchableOpacity } from 'react-native'
 import { getFilmDetailFromApi, getImageFromApi } from '../api/TMDBApi'
 import moment from 'moment'
 import numeral from 'numeral'
@@ -26,6 +26,9 @@ function FilmDetail(props) {
 
     const displayFavoriteImage = () => {
         var sourceImage = require('../images/ic_favorite.png')
+
+        props.favoritesFilm.findIndex(item => console.log(item.id))
+
         if (props.favoritesFilm.findIndex(item => item.id === film.id !== -1)) {
             var sourceImage = require('../images/ic_favorite_border.png')
         }
@@ -42,9 +45,6 @@ function FilmDetail(props) {
             setFilm(data)
             setIsLoading(false)
         })
-    }, [])
-
-    useEffect(() => {
     }, [props.favoritesFilm])
 
     const displayFilm = () => {
