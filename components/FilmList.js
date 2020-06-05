@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 import FilmItem from './FilmItem'
 import { connect } from 'react-redux'
 

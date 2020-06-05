@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, View, TextInput, Button, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, TextInput, Button, ActivityIndicator, SafeAreaView } from 'react-native'
 import FilmList from '../components/FilmList'
 import { getFilmsFormApiWithSearchedText } from '../api/TMDBApi'
 import { connect } from 'react-redux'
@@ -51,22 +51,25 @@ function Search(props) {
     }, [films])
 
     return (
-        <View style={styles.main_container}>
-            <TextInput
-                onSubmitEditing={() => searchFilms()}
-                onChangeText={(text) => searchTextInputChanged(text)}
-                style={styles.textinput}
-                placeholder='Titre du film'/>
-            <Button title='Rechercher' onPress={() => searchFilms()}/>
-            <FilmList
-                films={films}
-                navigation={props.navigation}
-                loadFilms={() => loadFilms()}
-                page={page}
-                totalPages={totalPages}
-            />
-            {displayLoading()}
-        </View>
+        <SafeAreaView style={styles.main_container}>
+            <View style={[styles.main_container, { marginTop: 20 }]}>
+                <TextInput
+                    onSubmitEditing={() => searchFilms()}
+                    onChangeText={(text) => searchTextInputChanged(text)}
+                    style={styles.textinput}
+                    placeholder='Titre du film'/>
+                <Button title='Rechercher' onPress={() => searchFilms()}/>
+                <FilmList
+                    films={films}
+                    navigation={props.navigation}
+                    loadFilms={() => loadFilms()}
+                    page={page}
+                    totalPages={totalPages}
+                    favoriteList={false}
+                />
+                {displayLoading()}
+            </View>
+        </SafeAreaView>
     )
 }
 

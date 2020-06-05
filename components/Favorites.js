@@ -4,31 +4,29 @@ import FilmList from './FilmList'
 import { connect } from 'react-redux'
 
 function Favorites(props) {
-    return (
-        <View style={styles.main_container}>
-        <View style={styles.avatar_container}>
-        </View>
-        <FilmList
-            films={props.favoritesFilm}
-            navigation={props.navigation}
-            favoriteList={true}
-        />
-        </View>
-    )
+  return (
+    <View style={styles.list}>
+      <FilmList
+        films={props.favoritesFilm}
+        navigation={props.navigation}
+        favoriteList={true}
+      />
+    </View>
+  )
 }
 
+
 const styles = StyleSheet.create({
-  main_container: {
-    flex: 1
-  },
-  avatar_container: {
-    alignItems: 'center'
+  list: {
+    position: 'relative',
+    top: 50
   }
 })
 
+
 const mapStateToProps = state => {
   return {
-    favoritesFilm: state.toggleFavorite.favoritesFilm
+    favoritesFilm: state.favoritesFilm
   }
 }
 
