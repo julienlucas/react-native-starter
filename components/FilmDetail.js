@@ -4,7 +4,6 @@ import { getFilmDetailFromApi, getImageFromApi } from '../api/TMDBApi'
 import moment from 'moment'
 import numeral from 'numeral'
 import { connect } from 'react-redux'
-// import EnlargeShrink from '../animations/EnlargeShrink'
 
 function FilmDetail(props) {
     const [film, setFilm] = useState(undefined)
@@ -43,7 +42,7 @@ function FilmDetail(props) {
                     onPress={() => shareFilm()}>
                     <Image
                         style={styles.share_image}
-                        source={require('../images/ic_share.android.png')} />
+                        source={require('../images/ic_share.android.png')}/>
                 </TouchableOpacity>
             )
         }
@@ -67,10 +66,8 @@ function FilmDetail(props) {
 
     const displayFavoriteImage = () => {
         var sourceImage = require('../images/ic_favorite_border.png')
-        var shouldEnlarge = false
         if (props.favoritesFilm.findIndex(item => item.id === film.id) !== -1) {
           sourceImage = require('../images/ic_favorite.png')
-          shouldEnlarge = true
         }
 
         return (
@@ -188,8 +185,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     favorite_image: {
-        width: null,
-        height: null,
+        width: 40,
+        height: 40,
         flex: 1
     },
     share_touchable_floatingactionbutton: {
