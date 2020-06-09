@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { StyleSheet, Image, TouchableOpacity } from 'react-native'
 import ImagePicker from 'react-native-image-picker'
 import { connect } from 'react-redux'

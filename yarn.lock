@@ -5358,9 +5358,9 @@ react-native-gesture-handler@^1.6.1:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
-react-native-image-picker@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-2.3.1.tgz#1977b65e07793d2c0b2d1976fb675c5f75ad7f11"
+react-native-image-picker@^0.28.0:
+  version "0.28.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.28.1.tgz#1127460522e0c9741fc62f3d040271d298fb6a6e"
 
 react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"
@@ -5572,10 +5572,6 @@ readable-stream@^2.0.1, readable-stream@^2.2.2, readable-stream@~2.3.6:
 realpath-native@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/realpath-native/-/realpath-native-2.0.0.tgz#7377ac429b6e1fd599dc38d08ed942d0d7beb866"
-
-redux-persist@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-6.0.0.tgz#b4d2972f9859597c130d40d4b146fecdab51b3a8"
 
 redux@^4.0.5:
   version "4.0.5"
