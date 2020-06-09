@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, Image, TouchableOpacity } from 'react-native'
 import ImagePicker from 'react-native-image-picker'
 import { connect } from 'react-redux'
 
 function Avatar(props) {
+
   const avatarClicked = () => {
     ImagePicker.showImagePicker({}, (response) => {
         if (response.didCancel) {
